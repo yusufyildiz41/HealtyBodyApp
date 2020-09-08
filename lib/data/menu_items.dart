@@ -3,7 +3,7 @@ import '../model/menu_item.dart';
 
 class MenuItems{
 
-  //Sign Out
+  //Sign Out Part
   static const List<MenuItem> itemSecond =[itemSignOut];
   static const itemSignOut = MenuItem(   //From MenuItem Class
     text: 'Çıkış Yap',

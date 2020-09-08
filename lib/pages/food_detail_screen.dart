@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:bmi_calc/model/food_list.dart';
+
 import 'package:bmi_calc/model/foods.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

@@ -29,7 +29,7 @@ class _UserInfo extends State<UserInfo> {
   var auth = AuthService();
   var listOfUser = [];
   late UserInfoDatabase db;
-
+  var currentUser = AuthService().auth.currentUser;
   final TextEditingController bkiController = TextEditingController();
   final TextEditingController bmhController = TextEditingController();
 
@@ -44,7 +44,7 @@ class _UserInfo extends State<UserInfo> {
 
   Future refreshUsers() async{
     setState(() => isLoading = true);
-    this.user = (await UserInfoDatabase.instance.readUser(widget.email.toString()));
+    this.user = (await UserInfoDatabase.instance.readUser(currentUser!.email.toString()));
     setState(() => isLoading = false);
   }
 
@@ -55,7 +55,7 @@ class _UserInfo extends State<UserInfo> {
 
     final TextStyle headline = Theme.of(context).textTheme.headline6!;
     var size = MediaQuery.of(context).size;
-    print("gelenn mail "+widget.email.toString());
+
 
 
     // TODO: implement build
@@ -88,6 +88,7 @@ class _UserInfo extends State<UserInfo> {
                     cardWidget("Kullanıcının emaili :",user.email, headline),
                     cardWidget("Kullanıcının kilosu :",user.weight, headline),
                     cardWidget("Kullanıcının boyu :",user.height, headline),
+
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(

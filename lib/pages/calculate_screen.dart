@@ -16,9 +16,9 @@ class _CalculatePage extends State<CalculatePage> {
   Widget build(BuildContext context) {
     final screenSize= MediaQuery.of(context).size;
     //banner part
-    final AdSize adSize = AdSize(width: screenSize.width.toInt(), height: 50);
+    final AdSize adSize = AdSize(width:screenSize.width.toInt(), height: 50);
     final BannerAd myBanner = BannerAd(
-      adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+      adUnitId: 'ca-app-pub-9674377801597724/6371733359',
       size: adSize,
       request: AdRequest(),
       listener: BannerAdListener(),

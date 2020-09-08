@@ -2,15 +2,19 @@ import 'package:bmi_calc/pages/home.dart';
 import 'package:bmi_calc/pages/login.dart';
 import 'package:bmi_calc/service/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: "AIzaSyDhBA_FcqL5fqGtR0WCTYuWg6IhTKZ2oD8",
+          appId: "1:665662953630:android:7e17d2e5776f8131c8838f",
+          messagingSenderId: "",
+          projectId: "newbmi-c3226"));
+
   runApp(MyApp());
 }
 

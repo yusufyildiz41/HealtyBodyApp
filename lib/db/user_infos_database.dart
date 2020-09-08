@@ -5,7 +5,6 @@ import 'package:bmi_calc/model/user.dart';
 class UserInfoDatabase{
 
   static final UserInfoDatabase instance = UserInfoDatabase._init();
-
   static Database? _database;
 
   UserInfoDatabase._init();

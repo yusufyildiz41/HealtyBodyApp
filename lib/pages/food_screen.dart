@@ -78,7 +78,7 @@ class _FoodScreen extends State<FoodScreen> {
     //banner part
     final AdSize adSize = AdSize(width: screenSize.width.toInt(), height: 50);
     final BannerAd myBanner = BannerAd(
-      adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+      adUnitId: 'ca-app-pub-9674377801597724/6371733359',
       size: adSize,
       request: AdRequest(),
       listener: BannerAdListener(),
@@ -263,78 +263,3 @@ class _FoodScreen extends State<FoodScreen> {
 
   }
 }
-
-//scaffold body kısmına eklenecek
-/* Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                          controller: searchTextController,
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                          cursorColor: Colors.white,
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.mail,
-                              color: Colors.white,
-                            ),
-                            hintText: 'E-Mail',
-                            prefixText: ' ',
-                            hintStyle: TextStyle(color: Colors.white),
-                            focusColor: Colors.white,
-                            focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.white,
-                                )),
-                            enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.white,
-                                )),
-                          )),
-                    ),
-                    SizedBox(width: screenSize.width*0.55,),
-                    RaisedButton(
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-
-              ],
-            )
-
- */
-//expanded altına eklenecek
-/* ListView.builder(
-                        itemCount: foods.foods?.length,
-                        itemBuilder: (context, index) {
-
-                          return Card(
-                            color: Colors.transparent,
-                            child: ListTile(
-                              title: Text("${foods.foods?[index].description.toString().translate(to:"tr")}"),
-                              subtitle: Text(
-                                "Yiyecek Kategorisi : " +
-                                    foods.foods?[index].foodCategory,
-                                style: TextStyle(fontSize: 16),
-                              ),
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => FoodDetailScreen(
-                                            foods.foods![index].fdcId,
-                                            foods.foods![index].description)));
-                              },
-                            ),
-                          );
-                        }),
-
- */
