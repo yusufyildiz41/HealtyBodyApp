@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "665662953630",
+    "project_id": "newbmi-c3226",
+    "storage_bucket": "newbmi-c3226.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665662953630:android:7e17d2e5776f8131c8838f",
+        "android_client_info": {
+          "package_name": "com.yusufyildiz.bmi_calc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665662953630-3tgq2n3kp8633bn0uplmbkdflk6jledl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhBA_FcqL5fqGtR0WCTYuWg6IhTKZ2oD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665662953630-3tgq2n3kp8633bn0uplmbkdflk6jledl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
