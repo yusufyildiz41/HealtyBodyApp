@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:bmi_calc/globals.dart' as globals;
 
 class BKI extends StatefulWidget {
   @override
@@ -11,6 +10,7 @@ class BKI extends StatefulWidget {
 }
 
 class _BKICalculate extends State<BKI> {
+
 
   var status = "";
   bool value = false;
@@ -76,7 +76,7 @@ class _BKICalculate extends State<BKI> {
 
                                 ],
                               ),
-                            )
+                            ),
 
                           ],
                         ),
@@ -200,7 +200,7 @@ class _BKICalculate extends State<BKI> {
         var cmToMeter = double.parse(height) / 100;
         var weight = double.parse(_weightController.text.toString());
         var total = weight / (cmToMeter * cmToMeter);
-        globals.bkiResultList.add(total);
+
 
 
         setState(() {

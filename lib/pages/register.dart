@@ -1,9 +1,12 @@
+import 'package:bmi_calc/db/user_infos_database.dart';
+import 'package:bmi_calc/model/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../service/auth.dart';
 import 'login.dart';
+import 'package:uuid/uuid.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -11,6 +14,11 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+
+  late UserInfoDatabase db;
+  late User user;
+  var uuid = Uuid();
+  int id = 0;
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -20,6 +28,32 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController passwordAgainController = TextEditingController();
 
   AuthService authService = AuthService();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    db = UserInfoDatabase.instance;
+    super.initState();
+  }
+
+  Future addUser(
+      var username,
+      var email,
+      var weight,
+      var height,
+      var uniqueId
+      ) async {
+    var user = User(
+        userName: username,
+        email: email,
+        weight: weight,
+        height: height,
+        uniqueId: uniqueId
+
+    );
+    await UserInfoDatabase.instance.create(user);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -213,13 +247,17 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         InkWell(
                           onTap: () {
+                            var uniqueId = uuid.v4();
+                            id++;
                             setState(() {
                               if(nameController.text.toString().isNotEmpty &&
                                   weightController.text.toString().isNotEmpty &&
                               heightController.text.toString().isNotEmpty &&
                               emailController.text.toString().isNotEmpty &&
                               passwordController.text.toString().isNotEmpty &&
-                              passwordAgainController.text.toString().isNotEmpty) {
+                              passwordAgainController.text.toString().isNotEmpty)
+                              {
+
                                 if (passwordController.text.toString() ==
                                     passwordAgainController.text.toString()) {
                                   if (passwordController.text.length >= 6) {
@@ -234,6 +272,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                       weightController.text.toString(),
                                       heightController.text.toString(),
                                     );
+
+                                    addUser(nameController.text.toString(), emailController.text.toString(), weightController.text.toString(), heightController.text.toString(), uniqueId.toString());
+
+
 
                                     Navigator.push(
                                         context,

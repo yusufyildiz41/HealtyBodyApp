@@ -10,6 +10,7 @@ class LogInValidationMixin{
       {
         return "";
       }
+
   }
   String validatePassword(var password){
 
@@ -21,5 +22,6 @@ class LogInValidationMixin{
     {
       return "";
     }
+
   }
 }

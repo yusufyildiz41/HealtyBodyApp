@@ -7,10 +7,14 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   @override
+  String? email;
+  HomePage.withEmail(this.email);
+  HomePage();
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
 
   int selectedIndex = 0;
   static const TextStyle optionStyle = TextStyle(
@@ -40,7 +44,7 @@ class _HomePageState extends State<HomePage> {
       }
     else if(selectedIndex == 3)
       {
-        child = UserInfo();
+        child = UserInfo(widget.email.toString());
       }
 
     // TODO: implement build

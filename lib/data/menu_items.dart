@@ -10,5 +10,4 @@ class MenuItems{
     icon: Icons.logout
   );
 
-
 }

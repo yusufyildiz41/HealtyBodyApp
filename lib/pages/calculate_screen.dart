@@ -2,6 +2,7 @@ import 'package:bmi_calc/pages/bki_calculate_screen.dart';
 import 'package:bmi_calc/pages/bmh_calculate_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class CalculatePage extends StatefulWidget {
   @override
@@ -10,10 +11,29 @@ class CalculatePage extends StatefulWidget {
 }
 
 class _CalculatePage extends State<CalculatePage> {
-  @override
 
+  @override
   Widget build(BuildContext context) {
     final screenSize= MediaQuery.of(context).size;
+    //banner part
+    final AdSize adSize = AdSize(width: screenSize.width.toInt(), height: 50);
+    final BannerAd myBanner = BannerAd(
+      adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+      size: adSize,
+      request: AdRequest(),
+      listener: BannerAdListener(),
+    );
+    myBanner.load();
+    //adWidget
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+
+    //adContainer
+    final Container adContainer = Container(
+      alignment: Alignment.center,
+      child: adWidget,
+      width: screenSize.width.toDouble(),
+      height: 50,
+    );
 
     // TODO: implement build
     return  Stack(
@@ -25,6 +45,10 @@ class _CalculatePage extends State<CalculatePage> {
           fit: BoxFit.fill,
         ),
         Scaffold(
+          bottomNavigationBar:BottomAppBar(
+            child: adContainer,
+            color: Colors.transparent,
+          ),
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
@@ -36,7 +60,7 @@ class _CalculatePage extends State<CalculatePage> {
             children: [
               Container(
                   width: screenSize.width,
-                  height: 500,
+                  height: screenSize.height*0.5,
                   child: Column(
                     children: [
                       SizedBox(height: 150,),
@@ -51,7 +75,6 @@ class _CalculatePage extends State<CalculatePage> {
                     ],
                   )
               ),
-
             ],
           ),
         )
@@ -104,7 +127,6 @@ class _CalculatePage extends State<CalculatePage> {
         child: Text("BMH(Bazal Metobolizma Hızı)",style: TextStyle(fontWeight:FontWeight.bold,fontSize: 20),)
     );
   }
-
 }
 
 

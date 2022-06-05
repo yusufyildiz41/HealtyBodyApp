@@ -5,7 +5,7 @@ class MenuItem {
   final String text;
   final IconData icon;
 
-  const MenuItem({
+  const MenuItem({ //from menu_items
     required this.text,
     required this.icon
   });

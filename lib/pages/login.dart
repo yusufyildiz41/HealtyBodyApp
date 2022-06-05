@@ -1,16 +1,20 @@
 import 'package:bmi_calc/pages/home.dart';
 import 'package:bmi_calc/pages/register.dart';
+import 'package:bmi_calc/pages/user_info.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../service/auth.dart';
 
 class LoginPage extends StatefulWidget {
+
   @override
+
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -25,6 +29,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+
+
     var size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
@@ -122,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                             return Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomePage()));
+                                    builder: (context) => HomePage.withEmail(emailController.text.toString())));
                           });
                         },
 

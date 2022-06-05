@@ -1,7 +1,7 @@
 import 'package:bmi_calc/pages/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:bmi_calc/globals.dart' as globals;
+
 import 'package:gender_picker/source/enums.dart';
 import 'package:gender_picker/source/gender_picker.dart';
 
@@ -188,7 +188,7 @@ class _BMHCalculate extends State<BMHCalculate> {
             var total =
                 88.362 + (13.397 * weight) + (4.799 * cm) - (5.677 * ageInt);
 
-            globals.bmhResultList.add(total);
+
 
             result = total.toString();
             setState(() {
@@ -202,7 +202,7 @@ class _BMHCalculate extends State<BMHCalculate> {
           {
             var total =
                 447.593 + (9.247 * weight) + (3.098 * cm) - (4.330 * ageInt);
-            globals.bmhResultList.add(total);
+
             result = total.toString();
             setState(() {
               if (ageInt > 20 && ageInt < 40 && total > 1000 && total < 1400) {
